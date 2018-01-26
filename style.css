@@ -1,0 +1,41 @@
+#canvas {
+    height:96%; 
+    width:70%;
+    border:2px solid; 
+    float:left; 
+    z-index:-2;
+}
+
+.item {
+    height:64px;
+    width:64px;
+    display:block;
+    z-index:0;
+}
+
+#joint {
+    background-image: url("images/jointg.png");  
+}
+
+#anchor {
+    background-image: url("images/anchorg.png"); 
+}
+
+#trash {
+    background-image: url("images/trash.png"); 
+    background-size:100%; 
+}
+
+#info {
+    float:right; 
+    width:28%; 
+    border:2px solid; 
+    right:1px; 
+    height:96%;
+}
+
+#queryinfo {
+    overflow:auto; 
+    height:90%; 
+    padding:5px;
+}

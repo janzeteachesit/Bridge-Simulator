@@ -1,0 +1,42 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="style.css">
+</head>
+<div id="main" style="-webkit-user-select:none;">
+<title>Bridge Simulator</title>
+<input type="button" onclick="connect('beam')" value = "Beam(b)"></input>
+<input type="button" onclick="connect('load')" value = "Load(l)"></input>
+<input type="button" onclick="connect('reaction')" value = "Reaction(r)"></input>
+<input type="button" onclick="disnode()" value = "Delete node"></input>
+<input type="button" onclick="disedge()" value = "Delete edge"></input>
+<input type="button" onclick="solve_all()" value = "Solve for members(s)"></input>
+<button onclick="showhelp()">Help</button>
+<br><br>
+    Scale(mm/pixel): <input type="text" value="1" id="scale">
+    E(MPa): <input type="text" value="1" id="modulus">
+    I(mm^4): <input type="text" value="1" id="smoa">
+    A(mm^2): <input type="text" value="1" id ="area">
+    Yield stress(MPa): <input type="text" value="1" id ="stress_y">
+<br><br>
+
+<div id="canvas" onmousemove = "drag()" onmouseup = "end()">
+	<div id = "lines"></div>
+	<div id = "dots"></div>
+	Add Joint ----
+	<div class="item" id="joint" style="position:absolute; top:100px; height:64px; width:64px" onmousedown = "start(this.id)"></div>
+	
+	Add Anchor ----
+	<div class="item" id="anchor" style="position:absolute; top:100px; left:100px; height:64px; width:64px;" onmousedown = "start(this.id)"></div>
+	
+	Trash:
+	<div class="item" id="trash" style="position:absolute; top:100px; left:200px; height:64px; width:64px;"></div>
+	</div>
+<div id="info">
+	<center>Information:</center>
+	<input type="button" onclick="del()" value="Clear information"></input>
+	<div id="queryinfo"></div>
+</div>
+</div>
+<script src="truss.js"></script>
+</html>
