@@ -1,7 +1,7 @@
 #canvas {
     height:96%; 
     width:70%;
-    border:2px solid; 
+    margin-left:10px;
     float:left; 
     z-index:-2;
 }
@@ -13,29 +13,47 @@
     z-index:0;
 }
 
-#joint {
-    background-image: url("images/jointg.png");  
+.jointg {
+    background:blue;
+    border-radius:50%;
 }
 
-#anchor {
-    background-image: url("images/anchorg.png"); 
+.joint {
+    background: grey;
+    border-radius:50%
+}
+
+.anchorg {
+    width:0;
+    height:0;
+    border-left: 16px solid transparent;
+    border-right:16px solid transparent;
+    border-bottom:32px solid black;
+}
+
+.anchor {
+    width:0;
+    height:0;
+    border-left: 16px solid transparent;
+    border-right:16px solid transparent;
+    border-bottom:32px solid grey;
 }
 
 #trash {
-    background-image: url("images/trash.png"); 
+    background-image: url("images/anchorg.png"); 
     background-size:100%; 
 }
 
 #info {
     float:right; 
     width:28%; 
-    border:2px solid; 
     right:1px; 
     height:96%;
 }
 
 #queryinfo {
     overflow:auto; 
-    height:90%; 
+    height:90%;
+    margin-top:10px;
     padding:5px;
 }
