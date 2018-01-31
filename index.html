@@ -1,68 +1,70 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-pink.min.css">
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <link rel="stylesheet" href="style.css">
 </head>
-<div class="mdl-layout mdl-js-layout" id="main" style="-webkit-user-select:none;">
-	<title>Bridge Simulator</title>
-	<div class="mdl-layout__header mdl-layout__header--fixed">
-		<div class="mdl-layout__header-row">
-			<span class="mdl-layout-title">Bridge Simulator</span>
-			<div class="mdl-layout-spacer"></div>
-			<nav class="mdl-navigation" style="color:white">
-				<input class="mdl-button mdl-js-button" style="color:white;" type="button" onclick="connect('beam')" value = "Beam(b)">
-				<input class="mdl-button mdl-js-button" style="color:white;" type="button" onclick="connect('load')" value = "Load(l)">
-				<input class="mdl-button mdl-js-button" style="color:white" type="button" onclick="connect('reaction')" value = "Reaction(r)">
-				<input class="mdl-button mdl-js-button" style="color:white" type="button" onclick="disnode()" value = "Delete node">
-				<input class="mdl-button mdl-js-button" style="color:white" type="button" onclick="disedge()" value = "Delete edge">
-				<input class="mdl-button mdl-js-button" style="color:white" type="button" onclick="solve_all()" value = "Simulate">
-				<input class="mdl-button mdl-js-button" style="color:white" type="button" onclick="showhelp()" value="Help">
-			</nav>
-		</div>
+<div class="mdl-layout mdl-js-layout" id="main">
+    <title>Bridge Simulator</title>
+    <div class="mdl-layout__header mdl-layout__header--fixed">
+	<div class="mdl-layout__header-row">
+	    <span class="mdl-layout-title">Bridge Simulator</span>
+	    <div class="mdl-layout-spacer"></div>
+		<nav class="white mdl-navigation">
+		    <input class="white mdl-button mdl-js-button" type="button" onclick="connect('beam')" value = "Beam(b)">
+		    <input class="white mdl-button mdl-js-button" type="button" onclick="connect('load')" value = "Load(l)">
+		    <input class="white mdl-button mdl-js-button" type="button" onclick="connect('reaction')" value = "Reaction(r)">
+		    <input class="white mdl-button mdl-js-button" type="button" onclick="disnode()" value = "Delete node">
+		    <input class="white mdl-button mdl-js-button" type="button" onclick="disedge()" value = "Delete edge">
+		    <input class="white mdl-button mdl-js-button" type="button" onclick="solve_all()" value = "Simulate">
+		    <input class="white mdl-button mdl-js-button" type="button" onclick="showhelp()" value="Help">
+		</nav>
+	    </div>
 	</div>
 	<main class="mdl-layout__content">
-		<div style="width:96%; text-align:justify; margin-top:10px; margin-left:2%;">
-		<div class="mdl-js-textfield mdl-textfield mdl-textfield--floating-label" style="width:18%">
-    			<label class="mdl-textfield__label">Scale (mm/pixel): </label>
-			<input class="mdl-textfield__input" type="number" value="1" step="any" id="scale">
+	    <div id="input-group">
+		<div class="input mdl-js-textfield mdl-textfield mdl-textfield--floating-label">
+    		    <label class="mdl-textfield__label">Scale (mm/pixel): </label>
+		    <input class="mdl-textfield__input" type="number" value="1" step="any" id="scale">
 		</div>
 		
-		<div class="mdl-js-textfield mdl-textfield mdl-textfield--floating-label" style="width:18%">
-    			<label class="mdl-textfield__label">Elastic Modulus (MPa):</label>
-			<input class="mdl-textfield__input" type="number" value="10000" step="any" id="modulus">
+		<div class="input mdl-js-textfield mdl-textfield mdl-textfield--floating-label">
+    		    <label class="mdl-textfield__label">Elastic Modulus (MPa):</label>
+		    <input class="mdl-textfield__input" type="number" value="10000" step="any" id="modulus">
 		</div>
 		
-		<div class="mdl-js-textfield mdl-textfield mdl-textfield--floating-label" style="width:18%">
-    			<label class="mdl-textfield__label">Second Moment of Area (mm^4):</label>
-			<input class="mdl-textfield__input" type="number" value="5000" step="any" id="smoa">
+		<div class="input mdl-js-textfield mdl-textfield mdl-textfield--floating-label">
+    		    <label class="mdl-textfield__label">Second Moment of Area (mm^4):</label>
+		    <input class="mdl-textfield__input" type="number" value="5000" step="any" id="smoa">
 		</div>
 
-		<div class="mdl-js-textfield mdl-textfield mdl-textfield--floating-label" style="width:18%">	
-			<label class="mdl-textfield__label">Cross section area (mm^2): </label>
-			<input class="mdl-textfield__input" type="number" value="100" step="any" id ="area">
+		<div class="input mdl-js-textfield mdl-textfield mdl-textfield--floating-label">	
+		    <label class="mdl-textfield__label">Cross section area (mm^2): </label>
+		    <input class="mdl-textfield__input" type="number" value="100" step="any" id ="area">
 		</div>
 
-    		<div class="mdl-js-textfield mdl-textfield mdl-textfield--floating-label" style="width:18%">
-			<label class="mdl-textfield__label"> Yield stress(MPa): </label>
-			<input class="mdl-textfield__input" type="number" value="1000" step="any" id ="stress_y">
+    		<div class="input mdl-js-textfield mdl-textfield mdl-textfield--floating-label">
+		    <label class="mdl-textfield__label"> Yield stress(MPa): </label>
+		    <input class="mdl-textfield__input" type="number" value="1000" step="any" id ="stress_y">
 		</div>
-		<div style="width:100%; display:inline-block"></div>
-		</div>
-	<div id="canvas" onmousemove = "drag()" onmouseup = "end()">
-		<div id = "lines"></div>
+		<div id="empty"></div>
+	    </div>
+
+	    <div id="canvas" onmousemove = "drag()" onmouseup = "end()">
+	        <div id = "lines"></div>
 		<div id = "dots"></div>
-                Add joint ----- <div class="jointg" id="joint" style="border-radius:50%; position:absolute; top:100px; left:20px; height:32px; width:32px" onmousedown = "start(this.id)"></div>	
-		Add anchor ----- <div class="anchorg" id="anchor" style="position:absolute; top:100px; left:110px; width:0; height:0;" onmousedown = "start(this.id)"></div>
-		Trash <div class="trash" id="trash" style="position:absolute; top:84px; left:184px; height:64px; width:64px;"></div>
-        </div>
+                Add joint ----- <div class="jointg" id="joint" style="top:100px; left:20px;" onmousedown = "start(this.id)"></div>	
+		Add anchor ----- <div class="anchorg" id="anchor" style="top:100px; left:110px;" onmousedown = "start(this.id)"></div>
+		Trash <div class="trash" id="trash" style="top:84px; left:184px;"></div>
+            </div>
 
-	<div id="info">
-		<input class="mdl-js-button mdl-button mdl-button--raised mdl-button--colored" style="margin-left:25%; width:50%" type="button" onclick="del()" value="Clear information"></input>
+	    <div id="info">
+		<input id="clear-button" class="mdl-js-button mdl-button mdl-button--raised mdl-button--colored" type="button" onclick="del()" value="Clear Log">
 		<div id="queryinfo"></div>
-	</div>
-</main>
+	    </div>
+        </main>
 </div>
 <script src="truss.js"></script>
+<script src="gui.js"></script>
 </html>
