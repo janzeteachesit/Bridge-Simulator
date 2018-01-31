@@ -7,10 +7,10 @@ function start(id){
             case "joint":
             case "anchor":
                 sq = component.cloneNode(true);
-                sq.id = component.id + "-" + count[component.id];
+                sq.id = component.id + "-" + counts[component.id];
                 sq.class = component.id;
                 eval(component.id+"s").push(new node(sq.id, [], component.id));
-                count[component.id]++;
+                counts[component.id]++;
                 document.getElementById('dots').appendChild(sq);
                 glow();
                 break;
@@ -19,8 +19,8 @@ function start(id){
         }
         held = true; 
         vertex_id = sq.id;
-        offsetX = window.event.clientX - document.getElementById(sq.id).style.left.replace("px","");
-        offsetY = window.event.clientY - document.getElementById(sq.id).style.top.replace("px","");
+        offsetX = window.event.clientX - sq.style.left.replace("px","");
+        offsetY = window.event.clientY - sq.style.top.replace("px","");
 }
 
 //User drags object

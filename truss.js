@@ -8,7 +8,7 @@ var joints_matrix;
 var final_forces = [],reaction_forces=[];
 var vertex_id;
 var squash_link = {}, tension_link = {}, buckling_link = {};
-var count = {joint: 0, anchor: 0};
+var counts = {joint: 0, anchor: 0};
 var offsetX, offsetY;
 var edge_count = {'beam':0,'load':0,'reaction':0};
 
